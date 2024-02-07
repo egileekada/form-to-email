@@ -18,7 +18,7 @@ function FormComponent() {
                         <FaArrowLeft />
                     </button>
                 )}
-                <p className=' text-[24px] leading-[24px] ' >{tab === 0 ? "Client Information" : tab === 1 ? "Medical History" : "Preview"}</p>
+                <p className=' text-[24px] leading-[24px] ' >{tab === 0 ? "Client Information" : tab === 1 ? "Medical History" : "Confirm Your Information"}</p>
             </div>
             {tab === 1 && (
                 <p className=' text-[#121212B2] leading-6 ' >Do you have any of the following?</p>
