@@ -1,10 +1,7 @@
-import React from 'react'
-import { Exit } from '../svg'
+// import React from 'react'
+import { Exit } from '../svg' 
 
-interface Props {}
-
-function Navbar(props: Props) {
-    const {} = props
+function Navbar() { 
 
     return (
         <div className=' w-full h-[95px] px-8 bg-white border-b border-[#A2897B] flex justify-between items-center ' >
