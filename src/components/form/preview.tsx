@@ -1,8 +1,7 @@
-import React, { useRef, useState } from 'react'
+import { useRef } from 'react'
 import Stepone from './stepone'
 import Steptwo from './steptwo'
-import { Cloudinary } from '@cloudinary/url-gen';
-import { PDFViewer, PDFDownloadLink } from '@react-pdf/renderer';
+import { Cloudinary } from '@cloudinary/url-gen'; 
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 
@@ -23,49 +22,21 @@ function Preview(props: Props) {
         setData
     } = props
 
-    const componentRef: any = useRef<HTMLDivElement>(null);
+    const componentRef: any = useRef<HTMLDivElement>(null);  
 
-    // const [pdfDataUrl, setPdfDataUrl] = useState<string>('');
+    const Add = async () => { 
 
-    const cloudName = "dwotkchmt";
-    const apiKey = 764891764885852;
-    const apiSecret: any = "78GBRFlbW7ygjlz_ah0tufLUA"
-
-    const generatePDF = async () => {
-        //     
-        // Capture the component as an image using html2canvas
         const canvas: any = await html2canvas(componentRef.current);
         const imgData = canvas.toDataURL('image/png');
 
         // Create a PDF document
-        const pdf = new jsPDF('p', 'mm', 'a4');
-        const imgWidth = 210;
-        const imgHeight = (canvas.height * imgWidth) / canvas.width;
-        pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight, "FAST");
-
-
-    };
-
-    const Add = async () => {
-
-
-        
-        const canvas: any = await html2canvas(componentRef.current);
-        const imgData = canvas.toDataURL('image/png');
-
-        // Create a PDF document
-        const pdf = new jsPDF('p', 'pt', 'a4');
-
-        var pageHeight = pdf.internal.pageSize.height;
+        const pdf = new jsPDF('p', 'pt', 'a4'); 
 
         var pageWidth = pdf.internal.pageSize.width;
         const imgWidth = 210;
         const imgHeight = (canvas.height * imgWidth) / canvas.width;
         pdf.addImage(imgData, 'JPEG', 0, 0, imgWidth, imgHeight, '', 'FAST');
-
-        console.log(pdf.output('blob'));
-
-        pdf.save("example.pdf");
+ 
 
         const formData = new FormData();
         formData.append('file', pdf.output('blob'), 'document.pdf');;
