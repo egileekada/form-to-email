@@ -1,24 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
+// import React from 'react';
+// import logo from './logo.svg';
 import './App.css';
+import FormComponent from './components/form';
+import Navbar from './components/navbar';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className=' w-full flex h-screen overflow-x-hidden overflow-y-auto flex-col items-center ' >
+      <div className=' w-full sticky top-0 ' >
+        <Navbar />
+      </div>
+      <div className=' w-full max-w-[1440px] pt-10 px-10 flex flex-col items-center '  >
+        <div className=' w-fit mx-auto flex flex-col items-center ' >
+          <FormComponent />
+        </div>
+
+      </div>
     </div>
   );
 }
