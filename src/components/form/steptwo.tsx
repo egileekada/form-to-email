@@ -1,4 +1,3 @@
-import React from 'react'
 import Customcheckbox from '../shared/customcheckbox'
 import Custominput from '../shared/custominput'
 
@@ -17,13 +16,8 @@ function Steptwo(props: Props) {
         hidebtn,
         data,
         setData
-    } = props
-
-    console.log(data);
-
-    const dataLift = ["Dry Eye Syndrome", "Sensitive Eyes", "Ocular Rosacea", "Chemotherapy", "History of Eye infection", "SjorgSensitiveen Syndrome"]
-    const dataLamination = ["Alopocia", "Psorasis", "Wounds Treatment Area", "Chemotherapy", "Supersensitive Skin", "Recent facial treatment", "Eczema", "Sunburn", "Retinol , AHA, BHA etc."]
-
+    } = props 
+    
     return (
         <div className=' w-full flex flex-col text-[#121212] items-center ' >
             <div className=' max-w-[800px] w-full flex flex-col gap-4' >

@@ -1,16 +1,12 @@
-import React, { useState } from 'react'
-import Custominput from '../shared/custominput'
+import React from 'react' 
 import Stepone from './stepone'
 import Steptwo from './steptwo'
 import Preview from './preview'
+ 
+function FormComponent() { 
 
-interface Props { }
-
-function FormComponent(props: Props) {
-    const { } = props
-
-    const [tab, setTab] = useState(0)
-    const [data, setData] = useState({} as any)
+    const [tab, setTab] = React.useState(0)
+    const [data, setData] = React.useState({} as any)
 
     return (
         <div className=' w-full flex flex-col' >

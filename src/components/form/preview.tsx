@@ -1,20 +1,13 @@
 import { useRef } from 'react'
 import Stepone from './stepone'
-import Steptwo from './steptwo'
-import { Cloudinary } from '@cloudinary/url-gen'; 
+import Steptwo from './steptwo' 
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 
 interface Props {
     data?: any,
     setData?: any
-}
-
-const cloudinary = new Cloudinary({
-    cloud: {
-        cloudName: 'dwotkchmt'
-    }
-});
+} 
 
 function Preview(props: Props) {
     const {
@@ -31,8 +24,7 @@ function Preview(props: Props) {
 
         // Create a PDF document
         const pdf = new jsPDF('p', 'pt', 'a4'); 
-
-        var pageWidth = pdf.internal.pageSize.width;
+ 
         const imgWidth = 210;
         const imgHeight = (canvas.height * imgWidth) / canvas.width;
         pdf.addImage(imgData, 'JPEG', 0, 0, imgWidth, imgHeight, '', 'FAST');
@@ -54,7 +46,7 @@ function Preview(props: Props) {
                 console.log('PDF Uploaded:', data.url);
                 console.log(data?.secure_url);
 
-                const mailtoLink = `https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=m.neboh@chasescroll.com&su=Test&body=${data?.secure_url}`;
+                const mailtoLink = `https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=lashandspalounge@gmail.com&su=Test&body=${data?.secure_url}`;
                 window.location.href = mailtoLink;
             }
         } catch (error) {
