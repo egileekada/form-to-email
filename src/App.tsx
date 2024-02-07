@@ -7,10 +7,10 @@ import Navbar from './components/navbar';
 function App() {
   return (
     <div className=' w-full flex h-screen overflow-x-hidden overflow-y-auto flex-col items-center ' >
-      <div className=' w-full sticky top-0 ' >
+      <div className=' w-full sticky z-50 top-0 ' >
         <Navbar />
       </div>
-      <div className=' w-full max-w-[1440px] pt-10 px-10 flex flex-col items-center '  >
+      <div className=' w-full max-w-[1440px] pt-10 px-4 flex flex-col items-center '  >
         <div className=' w-fit mx-auto flex flex-col items-center ' >
           <FormComponent />
         </div>

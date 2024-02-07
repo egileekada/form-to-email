@@ -11,6 +11,7 @@ interface Props {
     value?: string,
     data: any,
     setData?: any
+    sign?: boolean
     [x: string]: any
 }
 
@@ -26,12 +27,13 @@ function Custominput(props: Props) {
         value,
         data,
         setData,
+        sign,
         ...rest
     } = props
 
 
 
-    const handleChange = ({ target: { name, value, type } }: any) => { 
+    const handleChange = ({ target: { name, value, type } }: any) => {
         setData({
             ...data,
             [name]: value
@@ -40,11 +42,13 @@ function Custominput(props: Props) {
 
     return (
         <div className={` w-full max-w-${width ? width : 'full'} flex flex-col gap-2 `}>
-            <p className=' text-[#344054] leading-5 font-medium ' >{title}</p>
+            {!sign && ( 
+                <p className=' text-[#344054] leading-5 font-medium ' >{title}</p>
+            )}
             {(!textarea && !onlytext) && (
                 <>
                     {!select ?
-                        <input  onChange={(e) => handleChange(e)} {...rest} value={value} style={{ boxShadow: '0px 1px 2px 0px #1018280D' }} className=' border border-[#D0D5DD] rounded-lg px-4 h-[44px] w-full ' /> :
+                        <input onChange={(e) => handleChange(e)} {...rest} value={value} style={sign ? {} : { boxShadow: '0px 1px 2px 0px #1018280D' }} className={` ${sign ? "border-b" : "border"} border-[${sign ? "#121212" : "#D0D5DD"}] ${sign ? " rounded-none" : " rounded-lg h-[44px] px-4"} outline-none w-full `} /> :
                         <select onChange={(e) => handleChange(e)} {...rest} style={{ boxShadow: '0px 1px 2px 0px #1018280D' }} className=' border border-[#D0D5DD] rounded-lg h-[44px] w-full '>
                             {options?.map((item: any, index: number) => {
                                 return (
@@ -59,7 +63,9 @@ function Custominput(props: Props) {
                 <textarea onChange={(e) => handleChange(e)} {...rest} style={{ boxShadow: '0px 1px 2px 0px #1018280D', height: height ? height : "44px" }} className={` border border-[#D0D5DD] rounded-lg p-4 w-full outline-none `} />
             )}
             {onlytext && (
-                <p className=' text-[#121212] ' >{value}</p>
+                <div className={` ${sign ? "border-b" : ""} border-[${sign ? "#121212" : "#D0D5DD"}] text-[#121212] flex items-center h-[44px] `} >
+                    <p >{value}</p>
+                </div>
             )}
         </div>
     )

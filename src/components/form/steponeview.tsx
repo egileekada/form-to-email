@@ -10,26 +10,28 @@ interface Props {
     setData?: any
 }
 
-function Stepone(props: Props) {
+function SteponeView(props: Props) {
     const {
         next,
         hidebtn,
         onlytext,
         data,
         setData
-    } = props 
+    } = props
+
+    console.log(data);
     
 
     return (
-        <div className=' w-full flex px-4 flex-col items-center ' >
-            <div className=' max-w-[1000px] w-full grid grid-cols-1 lg:grid-cols-2 gap-4' >
+        <div className=' w-full flex flex-col items-center ' >
+            <div className=' max-w-[1000px] w-full grid grid-cols-2 gap-4' >
                 <Custominput data={data} setData={setData} onlytext={onlytext} value={data?.name ? data?.name : ""} name="name" title='Name' type={"text"} placeholder={"Davidson Mandison"} />
                 <Custominput data={data} setData={setData} onlytext={onlytext} value={data?.email ? data?.email : ""} name="email" title='Email Address' type={"text"} placeholder={"olivia@untitledui.com"} />
                 <Custominput data={data} setData={setData} onlytext={onlytext} value={data?.address ? data?.address : ""} name="address" title='Address' type={"text"} placeholder={"Enter Address"} />
                 <Custominput data={data} setData={setData} onlytext={onlytext} value={data?.city ? data?.city : ""} name="city" title='City' type={"text"} placeholder={"Enter City"} />
                 <Custominput data={data} setData={setData} onlytext={onlytext} value={data?.phone ? data?.phone : ""} name="phone" title='Phone Number' type={"tel"} placeholder={"+234"} />
                 <Custominput data={data} setData={setData} onlytext={onlytext} value={data?.state ? data?.state : ""} name="state" title='State' select={true} options={["Select State"]} />
-                <div className='  w-full flex lg:flex-row flex-col gap-4 ' >
+                <div className='  w-full flex gap-4 ' >
                     <Custominput data={data} setData={setData} onlytext={onlytext} value={data?.sex ? data?.sex : ""} name="sex" title='Sex' width='full' select={true} options={["Select Sex", "Male", "Female", "Other"]} placeholder={"Davidson Mandison"} />
                     <Custominput data={data} setData={setData} onlytext={onlytext} value={data?.date ? data?.date : ""} name="date" title='Select Date of birth' width='full' type={"date"} placeholder={"Davidson Mandison"} />
                 </div>
@@ -50,4 +52,4 @@ function Stepone(props: Props) {
     )
 }
 
-export default Stepone
+export default SteponeView
