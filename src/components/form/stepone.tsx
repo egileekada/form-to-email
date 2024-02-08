@@ -18,7 +18,16 @@ function Stepone(props: Props) {
         data,
         setData
     } = props 
-    
+
+    const states = [
+        "Select State",
+        'Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia',
+        'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland',
+        'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey',
+        'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina',
+        'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'
+      ];
+      
 
     return (
         <div className=' w-full flex px-4 flex-col items-center ' >
@@ -28,7 +37,7 @@ function Stepone(props: Props) {
                 <Custominput data={data} setData={setData} onlytext={onlytext} value={data?.address ? data?.address : ""} name="address" title='Address' type={"text"} placeholder={"Enter Address"} />
                 <Custominput data={data} setData={setData} onlytext={onlytext} value={data?.city ? data?.city : ""} name="city" title='City' type={"text"} placeholder={"Enter City"} />
                 <Custominput data={data} setData={setData} onlytext={onlytext} value={data?.phone ? data?.phone : ""} name="phone" title='Phone Number' type={"tel"} placeholder={"+1"} />
-                <Custominput data={data} setData={setData} onlytext={onlytext} value={data?.state ? data?.state : ""} name="state" title='State' select={true} options={["Select State"]} />
+                <Custominput data={data} setData={setData} onlytext={onlytext} value={data?.state ? data?.state : ""} name="state" title='State' select={true} options={states} />
                 <div className='  w-full flex lg:flex-row flex-col gap-4 ' >
                     <Custominput data={data} setData={setData} onlytext={onlytext} value={data?.sex ? data?.sex : ""} name="sex" title='Sex' width='full' select={true} options={["Select Sex", "Male", "Female", "Other"]} placeholder={"Davidson Mandison"} />
                     <Custominput data={data} setData={setData} onlytext={onlytext} value={data?.date ? data?.date : ""} name="date" title='Select Date of birth' width='full' type={"date"} placeholder={"Davidson Mandison"} />
