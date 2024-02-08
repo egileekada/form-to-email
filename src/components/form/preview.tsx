@@ -10,6 +10,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import React from 'react';
 import { FaInfoCircle } from 'react-icons/fa';
 
+import emailjs, { send } from '@emailjs/browser';
+
 interface Props {
     data?: any,
     setData?: any,
@@ -28,6 +30,8 @@ function Preview(props: Props) {
     const [loading, setLoading] = React.useState(false)
     const [showModal, setShowModal] = React.useState(false)
 
+    console.log(data);
+    
 
     // const Add = async () => {
 
@@ -85,7 +89,6 @@ function Preview(props: Props) {
             callback: async () => {
                 // Save the PDF file
                 // pdf.save('example.pdf');
-
                 const formData = new FormData();
                 formData.append('file', pdf.output('blob'), 'document.pdf');;
                 // formData.append('folder', "pdf");
@@ -103,8 +106,8 @@ function Preview(props: Props) {
                         console.log('PDF Uploaded:', data.url);
                         console.log(data?.secure_url);
 
-                        const mailtoLink = `https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=m.neboh@chasescroll.com&su=Test&body=${data?.secure_url}`;
-                        window.location.href = mailtoLink;
+
+                        sendEmail(data?.secure_url)
                         toast.success('message sent', {
                             position: "top-right",
                             autoClose: 5000,
@@ -129,6 +132,21 @@ function Preview(props: Props) {
 
     };
 
+    const sendEmail = async (item: any) => {
+        const templateId = 'template_5qau2ki';
+
+        send('service_3lc1bsi', templateId, {
+            from_email: data?.email ? data?.email : "",   
+            from_name: data?.name ? data?.name : "",
+            subject: 'Subject of the Email',
+            message: item,
+        }, "CeFONnoTw3OIGZkoK").then((response) => {
+            console.log('Email sent successfully:', response);
+        }).catch((error) => {
+            console.error('Error sending email:', error);
+        });
+        setShowModal(false)
+    };
 
     return (
         <div className=' w-full flex flex-col items-center ' >
