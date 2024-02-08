@@ -7,8 +7,7 @@ interface Props {
     name?: string,
     data?: any,
     setData?: any,
-    opposite?: boolean,
-    onlytext?: boolean
+    opposite?: boolean, 
 }
 
 function Customcheckbox(props: Props) {
@@ -19,8 +18,7 @@ function Customcheckbox(props: Props) {
         name,
         data,
         setData,
-        opposite,
-        onlytext
+        opposite, 
     } = props
 
     const handleChange = ({ target: { name, checked } }: any) => {
