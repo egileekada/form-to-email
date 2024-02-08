@@ -27,7 +27,7 @@ function Stepone(props: Props) {
                 <Custominput data={data} setData={setData} onlytext={onlytext} value={data?.email ? data?.email : ""} name="email" title='Email Address' type={"text"} placeholder={"olivia@untitledui.com"} />
                 <Custominput data={data} setData={setData} onlytext={onlytext} value={data?.address ? data?.address : ""} name="address" title='Address' type={"text"} placeholder={"Enter Address"} />
                 <Custominput data={data} setData={setData} onlytext={onlytext} value={data?.city ? data?.city : ""} name="city" title='City' type={"text"} placeholder={"Enter City"} />
-                <Custominput data={data} setData={setData} onlytext={onlytext} value={data?.phone ? data?.phone : ""} name="phone" title='Phone Number' type={"tel"} placeholder={"+234"} />
+                <Custominput data={data} setData={setData} onlytext={onlytext} value={data?.phone ? data?.phone : ""} name="phone" title='Phone Number' type={"tel"} placeholder={"+1"} />
                 <Custominput data={data} setData={setData} onlytext={onlytext} value={data?.state ? data?.state : ""} name="state" title='State' select={true} options={["Select State"]} />
                 <div className='  w-full flex lg:flex-row flex-col gap-4 ' >
                     <Custominput data={data} setData={setData} onlytext={onlytext} value={data?.sex ? data?.sex : ""} name="sex" title='Sex' width='full' select={true} options={["Select Sex", "Male", "Female", "Other"]} placeholder={"Davidson Mandison"} />
