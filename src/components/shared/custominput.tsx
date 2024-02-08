@@ -62,7 +62,7 @@ function Custominput(props: Props) {
             {(textarea && !onlytext) && (
                 <textarea onChange={(e) => handleChange(e)} {...rest} style={{ boxShadow: '0px 1px 2px 0px #1018280D', height: height ? height : "44px" }} className={` border border-[#D0D5DD] rounded-lg p-4 w-full outline-none `} />
             )}
-            {onlytext && (
+            {(onlytext && value) && (
                 <div className={` ${sign ? "border-b" : ""} border-[${sign ? "#121212" : "#D0D5DD"}] text-[#121212] flex items-center h-[44px] `} >
                     <p >{value}</p>
                 </div>

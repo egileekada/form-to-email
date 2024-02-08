@@ -1,4 +1,5 @@
-import React from 'react'
+// import React from 'react'
+import { TiTick } from "react-icons/ti";
 
 interface Props {
     title: string,
@@ -7,7 +8,8 @@ interface Props {
     name?: string,
     data?: any,
     setData?: any,
-    opposite?: boolean
+    opposite?: boolean,
+    onlytext?: boolean
 }
 
 function Customcheckbox(props: Props) {
@@ -18,7 +20,8 @@ function Customcheckbox(props: Props) {
         name,
         data,
         setData,
-        opposite
+        opposite,
+        onlytext
     } = props
 
     const handleChange = ({ target: { name, checked } }: any) => {
@@ -30,8 +33,10 @@ function Customcheckbox(props: Props) {
     }
 
     return (
-        <div className={` ${reverse ? ' flex-row-reverse ' : ''} flex items-center gap-2 `} >
-            <input onChange={(e) => handleChange(e)} name={name} checked={opposite ? !value :value} className=' ' type="checkbox" />
+        <div className={` ${reverse ? ' flex-row-reverse ' : ''} flex items-center text-sm gap-2 `} >
+            {/* {!onlytext && (  */}
+                <input onChange={(e) => handleChange(e)} name={name} checked={opposite ? !value : value} className=' mt-4 ' type="checkbox" />
+             
             <p>{title}</p>
         </div>
     )
