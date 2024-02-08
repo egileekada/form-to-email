@@ -130,8 +130,7 @@ function Steptwo(props: Props) {
                             Client  Name  ( Signatures) :
                         </div>
                     </div>
-                    <div className='  w-[70%] lg:w-[240px] ' >
-
+                    <div className='  w-[70%] lg:w-[240px] ' > 
                         <Custominput data={data} type='date' setData={setData} value={data?.clientsigndate ? data?.clientsigndate : ""} placeholder='Client Name' sign={true} name="clientsigndate" onlytext={onlytext} width='full' title='If yes when' />
                         {/* <input type='date' placeholder='Client Name' className=' w-full border-b outline-none border-[#121212] ' /> */}
                         <div className=' w-full ' >
