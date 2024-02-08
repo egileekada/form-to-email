@@ -124,7 +124,7 @@ function Steptwo(props: Props) {
                 <div className=' w-full flex lg:flex-row flex-col justify-between gap-4 pt-12 border-[#121212] text-[#121212] ' >
                     <div className='  w-[70%] lg:w-[240px] ' >
 
-                    <Custominput data={data} setData={setData} value={data?.clientsign ? data?.clientsign : ""} placeholder='Client Name' sign={true} name="clientsign" onlytext={onlytext} width='full' title='If yes when' />
+                        <Custominput data={data} setData={setData} value={data?.clientsign ? data?.clientsign : ""} placeholder='Client Name' sign={true} name="clientsign" onlytext={onlytext} width='full' title='If yes when' />
                         {/* <input placeholder='Client Signatures' className=' w-full border-b outline-none border-[#121212] ' /> */}
                         <div className=' w-full ' >
                             Client  Name  ( Signatures) :
@@ -132,7 +132,7 @@ function Steptwo(props: Props) {
                     </div>
                     <div className='  w-[70%] lg:w-[240px] ' >
 
-                    <Custominput data={data} type='date' setData={setData} value={data?.clientsigndate ? data?.clientsigndate : ""} placeholder='Client Name' sign={true} name="clientsigndate" onlytext={onlytext} width='full' title='If yes when' />
+                        <Custominput data={data} type='date' setData={setData} value={data?.clientsigndate ? data?.clientsigndate : ""} placeholder='Client Name' sign={true} name="clientsigndate" onlytext={onlytext} width='full' title='If yes when' />
                         {/* <input type='date' placeholder='Client Name' className=' w-full border-b outline-none border-[#121212] ' /> */}
                         <div className=' w-full ' >
                             Date
@@ -142,9 +142,14 @@ function Steptwo(props: Props) {
             </div>
 
             {!hidebtn && (
-                <button onClick={() => next(2)} className=' w-full bg-[#A2897B] mt-16 rounded-lg h-11 leading-6 text-white font-medium ' >
-                    Next
-                </button>
+                <div className=' w-[70%] flex items-center gap-6 ' >
+                    <button onClick={() => next(1)} className=' w-full bg-[#A2897B] mt-16 rounded-lg h-11 leading-6 text-white font-medium ' >
+                        Previous
+                    </button>
+                    <button onClick={() => next(2)} className=' w-full bg-[#A2897B] mt-16 rounded-lg h-11 leading-6 text-white font-medium ' >
+                        Next
+                    </button>
+                </div>
             )}
         </div>
     )

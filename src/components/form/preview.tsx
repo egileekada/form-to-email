@@ -8,21 +8,26 @@ import jsPDF from 'jspdf';
 import { Bounce, ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import React from 'react';
+import { FaInfoCircle } from 'react-icons/fa';
 
 interface Props {
     data?: any,
-    setData?: any
+    setData?: any,
+    next?: any
 }
 
 function Preview(props: Props) {
     const {
         data,
-        setData
+        setData,
+        next
     } = props
 
     const componentRef: any = useRef<HTMLDivElement>(null);
 
     const [loading, setLoading] = React.useState(false)
+    const [showModal, setShowModal] = React.useState(false)
+
 
     // const Add = async () => {
 
@@ -128,7 +133,7 @@ function Preview(props: Props) {
     return (
         <div className=' w-full flex flex-col items-center ' >
             <div className=' w-full flex flex-col ' >
-                <div className=' relative w-full ' >
+                <div className=' relative w-full flex flex-col ' >
                     <div ref={componentRef} style={{ width: '100%' }} className=' w-full bg-white flex relative z-10 flex-col items-center justify-center ' >
                         <div className=' mx-auto w-fit ' >
 
@@ -137,9 +142,12 @@ function Preview(props: Props) {
                         </div>
                     </div>
 
-                    <div className=' w-full py-8 flex  ' >
-                        <button onClick={() => Add()} className=' w-full lg:w-[300px] bg-[#A2897B] mt-5 rounded-lg h-11 leading-6 text-white font-medium ' >
-                            {loading ? "Loading..." : "Submit"}
+                    <div className=' w-[70%] flex items-center gap-6 py-6 mx-auto ' >
+                        <button onClick={() => next(1)} className=' w-full lg:w-[300px] bg-[#A2897B] mt-5 rounded-lg h-11 leading-6 text-white font-medium ' >
+                            Previous
+                        </button>
+                        <button onClick={() => setShowModal(true)} className=' w-full lg:w-[300px] bg-[#A2897B] mt-5 rounded-lg h-11 leading-6 text-white font-medium ' >
+                            Submit
                         </button>
                     </div>
                     {/* <div ref={componentRef} style={{ width: '100%' }} className=' absolute top-0 inset-x-0 w-full flex flex-col items-center p-6 justify-center ' >
@@ -149,6 +157,21 @@ function Preview(props: Props) {
                             <SteptwoView next={undefined} data={data} setData={setData} hidebtn={true} onlytext={true} />
                         </div>
                     </div> */}
+                    {showModal && (
+
+                        <div className=' inset-0 fixed flex z-30 items-center justify-center ' >
+                            <div className=' w-[350px] relative px-4 z-50 flex flex-col items-center rounded-2xl bg-white shadow-lg py-8 ' >
+                                <FaInfoCircle size={50} />
+                                <p className=' font-bold text-xl mt-6 ' >ALMOST DONE!</p>
+                                <p className=' font-medium text-center leading-5 mt-2 ' >On the next page, all you have to do is simply click the send button and close the page. Thank you!</p>
+
+                                <button onClick={() => Add()} className=' w-full bg-[#A2897B] mt-5 rounded-lg h-11 leading-6 text-white font-bold ' >
+                                    {loading ? "Loading..." : "Submit"}
+                                </button>
+                            </div>
+                            <div className=' fixed inset-0 bg-black bg-opacity-25 ' />
+                        </div>
+                    )}
                 </div>
             </div>
             <ToastContainer />
