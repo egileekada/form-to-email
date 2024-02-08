@@ -1,5 +1,4 @@
-// import React from 'react'
-import { TiTick } from "react-icons/ti";
+// import React from 'react' 
 
 interface Props {
     title: string,
