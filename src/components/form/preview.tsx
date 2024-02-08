@@ -1,7 +1,7 @@
 import { useRef } from 'react'
 import Stepone from './stepone'
 import Steptwo from './steptwo'
-import html2canvas from 'html2canvas';
+// import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 // import SteptwoView from './steptwoview';
 // import SteponeView from './steponeview';
@@ -86,7 +86,7 @@ function Preview(props: Props) {
                 // formData.append('folder', "pdf");
                 formData.append('upload_preset', 'r7xwnxie');
 
-                const canvas: any = await html2canvas(componentRef.current);
+                // const canvas: any = await html2canvas(componentRef.current);
 
                 try {
                     const response = await fetch('https://api.cloudinary.com/v1_1/dwotkchmt/upload', {
