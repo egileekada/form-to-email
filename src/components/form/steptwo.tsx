@@ -1,3 +1,4 @@
+import { Bounce, ToastContainer, toast } from 'react-toastify'
 import Customcheckbox from '../shared/customcheckbox'
 import Custominput from '../shared/custominput'
 
@@ -17,6 +18,60 @@ function Steptwo(props: Props) {
         data,
         setData
     } = props
+
+    const clickHandler =()=> {
+        if(!data?.clientname){
+            toast.error('Enter Client Name, Date and Signature', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                transition: Bounce,
+            });
+        } else if(!data?.clientdate){
+            toast.error('Enter Client Name, Date and Signature', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                transition: Bounce,
+            });
+        }  else if(!data?.clientsign){
+            toast.error('Enter Client Name, Date and Signature', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                transition: Bounce,
+            });
+        }  else if(!data?.clientsigndate){
+            toast.error('Enter Client Name, Date and Signature', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                transition: Bounce,
+            });
+        } else {
+            next(2)
+        }
+    }
 
     return (
         <div className=' w-full flex flex-col px-4 text-[#121212] items-center ' >
@@ -145,11 +200,13 @@ function Steptwo(props: Props) {
                     <button onClick={() => next(1)} className=' w-full bg-[#A2897B] mt-16 rounded-lg h-11 text-white font-medium ' >
                         Previous
                     </button>
-                    <button onClick={() => next(2)} className=' w-full bg-[#A2897B] mt-16 rounded-lg h-11 text-white font-medium ' >
+                    <button onClick={() => clickHandler()} className=' w-full bg-[#A2897B] mt-16 rounded-lg h-11 text-white font-medium ' >
                         Next
                     </button>
                 </div>
             )}
+
+            <ToastContainer />
         </div>
     )
 }
