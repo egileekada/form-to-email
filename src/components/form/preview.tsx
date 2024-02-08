@@ -84,7 +84,7 @@ function Preview(props: Props) {
         pdf.html(htmlString, {
             callback: async () => {
                 // Save the PDF file
-                pdf.save('example.pdf');
+                // pdf.save('example.pdf');
 
                 const formData = new FormData();
                 formData.append('file', pdf.output('blob'), 'document.pdf');;
